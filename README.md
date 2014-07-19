@@ -89,4 +89,4 @@ FuzzySearch('lkrs', names);
 
 Pull requests to this repository are welcome. 
 
-However, the bulk of this function was originally written by Google for the Chrome DevTools. While not necessary, If you make any changes to the fundamental filtering parts of this function, consider contributing to the Chrome DevTools as well. The original code can be found in [this file](https://chromium.googlesource.com/chromium/blink/+/master/Source/devtools/front_end/sources/FilePathScoreFunction.js), and instructions on contributing to Chrome DevTools are [here](https://developer.chrome.com/devtools/docs/contributing)
+However, the bulk of this function was originally written by Google for the Chrome DevTools. While not necessary, If you make any changes to the fundamental filtering parts of this function, consider contributing to the Chrome DevTools as well. The original code can be found in [this file](https://chromium.googlesource.com/chromium/blink/+/master/Source/devtools/front_end/sources/FilePathScoreFunction.js), and instructions on contributing to Chrome DevTools are [here](https://developer.chrome.com/devtools/docs/contributing).
