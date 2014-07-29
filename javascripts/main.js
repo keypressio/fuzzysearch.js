@@ -1,8 +1,6 @@
 $(document).ready(function(){
     var characters = [];
     
-    $('input.demo').focus();
-    
     // Build the haystack. There's no way I'm typing that out twice.
     // Also, add data for easy access later. Again, to avoid typing.
     $('div.demo div').each(function(){
@@ -20,8 +18,15 @@ $(document).ready(function(){
             results;
             
         if (!query) {
+            $('div.demo div').each(function(){
+                var name = $(this).data('name');
+                $(this).find('.name').html(name);
+            });
+            
+            $('div.demo .score').html('');
+            
             $('div.demo div').show();
-            $('div.demo span.score').html('');
+            
             return;
         }
             
@@ -32,6 +37,10 @@ $(document).ready(function(){
             var $this = $(this),
                 name = $this.data('name'),
                 match;
+
+            if ($this.hasClass('noresults')) {
+                return;
+            }
                 
             match = _.find(results, function(obj){
                 return obj.item == name;
@@ -66,5 +75,11 @@ $(document).ready(function(){
                 $this.hide();
             }
         });
+        
+        if ($('div.demo div:not(.noresults)').filter(':visible').length === 0) {
+            $('div.demo div.noresults').show();
+        } else {
+            $('div.demo div.noresults').hide();
+        }
     })
 });

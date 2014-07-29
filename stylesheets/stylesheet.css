@@ -442,7 +442,7 @@ input.demo {
 
 div.demo {
     width: 660px;
-    height: 209px;
+    max-height: 209px;
     overflow-y: scroll;
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 0 10px rgba(0,0,0,.1);
@@ -458,5 +458,15 @@ div.demo div {
 div.demo span.score {
     display: inline-block;
     color: blue;
-    width: 50px;
+    width: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+div.demo div.noresults {
+    display: none;
+}
+
+div.demo div.noresults span.name {
+    font-style: italic;
 }
