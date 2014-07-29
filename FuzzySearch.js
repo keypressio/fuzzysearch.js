@@ -360,32 +360,16 @@
 		}
 	};
 
-	// var oldFuzzySearch = window.FuzzySearch;
-
 	FuzzySearch = function(needle, haystack){
 		results = [];
 		filterItems(needle, haystack);
 
-		if (FuzzySearch.returnFullResults) {
-			results.sort(function(a, b){
-				return b.score - a.score;
-			});
+		results.sort(function(a, b){
+			return b.score - a.score;
+		});
 
-			return results;
-		} else {
-			indexResults.sort(function(a, b){
-				return b.score - a.score;
-			});
-
-			return indexResults;
-		}
+		return results;
 	}
 
-	FuzzySearch.returnFullResults = false;
-
-	FuzzySearch.noConflict = function(){
-		// window.FuzzySearch = oldFuzzySearch;
-	}
-
-	// window.FuzzySearch = FuzzySearch;
-})();
+	window.FuzzySearch = FuzzySearch;
+})(window);
