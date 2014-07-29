@@ -432,4 +432,31 @@ Custom Styles
   border: none;
   box-shadow: none;
 }
+
+input.demo {
+    width: 650px;
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+div.demo {
+    width: 660px;
+    height: 209px;
+    overflow-y: scroll;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+div.demo div {
+    display: block;
+    background: #fff;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+div.demo span.score {
+    display: inline-block;
+    color: blue;
+    width: 50px;
 }

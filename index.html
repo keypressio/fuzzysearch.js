@@ -8,7 +8,12 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Fuzzysearch.js</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="javascripts/FuzzySearch.js"></script>
+    <script src="javascripts/main.js"></script>
+
+    <title>FuzzySearch.js</title>
   </head>
 
   <body>
@@ -16,11 +21,11 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <img src="https://s3.amazonaws.com/uploads.uservoice.com/logo/design_setting/221244/original/Subtext_Editor.png?1391828704" class="subtext_logo">
+          <img src="images/subtext_logo.png" class="subtext_logo">
         
           <a id="forkme_banner" href="https://github.com/subtexteditor/fuzzysearch.js">View on GitHub</a>
 
-          <h1 id="project_title">Fuzzysearch.js</h1>
+          <h1 id="project_title">FuzzySearch.js</h1>
           <h2 id="project_tagline"></h2>
 
             <section id="downloads">
@@ -34,48 +39,136 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="intro" class="anchor" href="#intro"><span class="octicon octicon-link"></span></a>A fuzzy search library for javascript.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>FuzzySearch.js lets you filter an array by a string. It doesn't just match the string that's typed, but any string where the characters match anywhere.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>For example, <code>fzzjs</code> would match <code><strong>F</strong>u<strong>zz</strong>ySearch.<strong>js</strong></code>. Useful!</p>
+
+<h3>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Try it now.</h3>
+
+<p>Example: Typing <code>VI:S</code> to see all Final Fantasy VI characters with the letter "S" in their name.</p>
+
+<input class='demo' placeholder="Start typing.">
+
+<div class='demo'>
+    <div><span class="score">&nbsp;</span><span class="name">Final Fantasy: Warrior</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy: Thief</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy: Monk</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy: Black Mage</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy: White Mage</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy: Red Mage</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Firion</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Maria</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Guy</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Leon</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Minwu</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Joesf</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Gordon</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Leila</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Ricard</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy II: Scott</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy III: Onion Kids (NES version)</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy III: Luneth (3D version)</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy III: Arc (3D version)</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy III: Refia (3D version)</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy III: Ingus (3D version)</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Cecil</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Rosa</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Kain</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Cid</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Porom</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Palom</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Yang</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Tellah</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Edard</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Fusoya</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Rydia</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy IV: Edge</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy V: Bartz</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy V: Lenna</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy V: Faris</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy V: Gadulf</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy V: Krile</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Terra</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Locke</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Edgar</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Sabin</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Cyan</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Shadow</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Relm</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Strago</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Gau</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Celes</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Setzer</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Mog</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Gogo</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VI: Umaro</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Cloud</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Tifa</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Barret</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Aeris</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Red XIII</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Cait Sith</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Cid</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Yuffie</span></div>
+    <div><span class="score"></span><span class="name">Final Fantasy VII: Vincent</span></div>
+</div>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>How to use?</h3>
+
+<p>Using FuzzySearch.js is simple. Use the following code:</p>
+
+<pre><code>var results = FuzzySearch(needle, haystack);</code></pre>
+
+<p>Where <code>needle</code> is what you're looking for, and <code>haystack</code> is an array of strings.</p>
+<p>Everything is case insensitive, because, you know, it's fuzzy. And whitespace is trimmed.</p>
+<p>You'll get back an array of objects. Each object will look like this:</p>
+
+<pre><code>{
+    "item": "Final Fantasy VI: Sabin",
+    "index": 0,
+    "score": 940
+}
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>After that, it's up to you. Filter the list, highlight matching characters. Whatever you want.</p>
+<p>Need some help? The source code of the demo in this page is <a href="https://github.com/subtexteditor/fuzzysearch.js/blob/gh-pages/javascripts/main.js">here</a>.</p>
 
 <h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>
+The bulk of this function was originally written by Google for the Chrome DevTools. The functional parts were taken out, trimmed, cleaned up,
+and packaged in a way that's easy to use anywhere. It's not the same as it was before, but credit needs to go to that team first.
+</p>
+
+<p>This cleaned up, packaged, and ready to use version was written by <a href="https://github.com/michaelday">@michaelday</a> for the app <a href="http://www.subtexteditor.com">Subtext Editor</a>.</p>
+
+<p>You can follow him on <a href="https://github.com/michaelday">GitHub</a> or <a href="http://www.twitter.com/michaellanceday">Twitter</a>.</p>
+
+<p>The original code can be found in <a href="https://chromium.googlesource.com/chromium/blink/+/master/Source/devtools/front_end/sources/FilePathScoreFunction.js">this file</a>.</p>
+
+<h3>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h3>
+
+<p>Becuase this code was originally taken from Chrome DevTools, it's bound by the Chromium license. Don't worry, it's very open. You can find a copy <a href="https://github.com/subtexteditor/fuzzysearch.js/blob/master/LICENSE">here</a>.</p>
 
 <h3>
 <a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Having trouble? You can post an issue <a href="https://github.com/subtexteditor/fuzzysearch.js/issues">here</a>. <a href="https://github.com/subtexteditor/fuzzysearch.js">Pull requests</a> are also welcome.</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Fuzzysearch.js maintained by <a href="https://github.com/subtexteditor">subtexteditor</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p class="copyright">Fuzzysearch.js maintained by <a href="https://github.com/michaelday">michaelday</a> for <a href="https://github.com/subtexteditor">subtexteditor</a>. Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
     
-
   </body>
 </html>
